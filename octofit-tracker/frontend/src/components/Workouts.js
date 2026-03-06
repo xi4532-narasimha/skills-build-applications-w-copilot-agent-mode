@@ -26,20 +26,18 @@ const Workouts = () => {
               <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Type</th>
-                <th>Duration</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody>
               {workouts.length === 0 ? (
-                <tr><td colSpan="4" className="text-center">No workouts found.</td></tr>
+                <tr><td colSpan="3" className="text-center">No workouts found.</td></tr>
               ) : (
                 workouts.map((workout, idx) => (
                   <tr key={workout.id || idx}>
                     <td>{workout.id || idx + 1}</td>
                     <td>{workout.name || '-'}</td>
-                    <td>{workout.type || '-'}</td>
-                    <td>{workout.duration || '-'}</td>
+                    <td>{workout.description || '-'}</td>
                   </tr>
                 ))
               )}
