@@ -25,19 +25,23 @@ const Activities = () => {
             <thead className="table-light">
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
+                <th>User</th>
+                <th>Type</th>
+                <th>Duration (min)</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
               {activities.length === 0 ? (
-                <tr><td colSpan="3" className="text-center">No activities found.</td></tr>
+                <tr><td colSpan="5" className="text-center">No activities found.</td></tr>
               ) : (
                 activities.map((activity, idx) => (
                   <tr key={activity.id || idx}>
                     <td>{activity.id || idx + 1}</td>
-                    <td>{activity.name || '-'}</td>
-                    <td>{activity.description || '-'}</td>
+                    <td>{activity.user ? (activity.user.name || activity.user) : '-'}</td>
+                    <td>{activity.type || '-'}</td>
+                    <td>{activity.duration || '-'}</td>
+                    <td>{activity.date || '-'}</td>
                   </tr>
                 ))
               )}
